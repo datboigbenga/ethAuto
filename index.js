@@ -3,10 +3,10 @@ require('dotenv').config()
 const ethers = require('ethers')
 const { BigNumber, utils } = ethers
 
-
+// wss://neat-distinguished-wish.discover.quiknode.pro/03e08f653d98d46226c616a865c97087603f7b1a/
 // console.log(process.env.INFURA_ID);
 const provider = new ethers.providers.WebSocketProvider(
-  `wss://mainnet.infura.io/ws/v3/${process.env.INFURA_ID}`,
+  `wss://neat-distinguished-wish.discover.quiknode.pro/${process.env.INFURA_ID}`,
   "mainnet"
 )
 
