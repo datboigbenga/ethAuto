@@ -3,19 +3,19 @@ require('dotenv').config()
 const ethers = require('ethers')
 const { BigNumber, utils } = ethers
 
-// wss://neat-distinguished-wish.discover.quiknode.pro/03e08f653d98d46226c616a865c97087603f7b1a/
+
 // console.log(process.env.INFURA_ID);
 // const provider = new ethers.providers.WebSocketProvider(
-//   `wss://neat-distinguished-wish.discover.quiknode.pro/${process.env.INFURA_ID}`,
+//   `wss://eth-mainnet.g.alchemy.com/v2/${process.env.INFURA_ID}`,
 //   "mainnet"
 // )
+// https://neat-distinguished-wish.discover.quiknode.pro/03e08f653d98d46226c616a865c97087603f7b1a/
 const provider = new ethers.providers.JsonRpcProvider(`https://neat-distinguished-wish.discover.quiknode.pro/${process.env.INFURA_ID}`)
-
 const depositWallet = new ethers.Wallet(
   process.env.DEPOSIT_WALLET_PRIVATE_KEY,
   provider,
 )
-
+// wss://eth-mainnet.g.alchemy.com/v2/pJUz2zpdk4pIPZHXCRgA--cczEV1z_pg
 const main = async () => {
   const depositWalletAddress = await depositWallet.getAddress()
   console.log(`Watching for incoming tx to ${depositWalletAddress}…`)
