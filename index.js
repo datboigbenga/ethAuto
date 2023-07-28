@@ -1,8 +1,9 @@
 require('dotenv').config()
-
+const express = require("express")
+const app = express()
 const ethers = require('ethers')
 const { BigNumber, utils } = ethers
-
+const PORT = process.env.PORT || 3000
 
 // console.log(process.env.INFURA_ID);
 // const provider = new ethers.providers.WebSocketProvider(
@@ -10,6 +11,7 @@ const { BigNumber, utils } = ethers
 //   "mainnet"
 // )
 // https://neat-distinguished-wish.discover.quiknode.pro/03e08f653d98d46226c616a865c97087603f7b1a/
+
 const provider = new ethers.providers.JsonRpcProvider(`https://mainnet.infura.io/v3/${process.env.INFURA_ID}`)
 const depositWallet = new ethers.Wallet(
   process.env.DEPOSIT_WALLET_PRIVATE_KEY,
@@ -80,3 +82,10 @@ const main = async () => {
 if (require.main === module) {
   main()
 }
+app.get("/", (req, res)=>{
+  res.send("<h1>App working</h1>")
+})
+
+app.listen(PORT, ()=>{
+  console.log(`server started on port ${PORT}`);
+})
